@@ -12,7 +12,7 @@ import com.ganesh.main.Student;
 public class HelloController {
 	
 	@Autowired
-	// Student student=new Student();
+	Student student;//=new Student();
 
 	@RequestMapping("/")
 	@ResponseBody
@@ -47,8 +47,8 @@ public class HelloController {
 	
 	@RequestMapping("/Student/{name}/{marks}")
 	String gradeCal(@PathVariable String name, @PathVariable Long marks) {
-		 Student student=new Student(name, marks);
-		return student.gradeCal(student.getName(), student.getMarks());
+		// Student student=new Student(name, marks);
+		return student.gradeCal(name, marks);
 	}
 	
 }

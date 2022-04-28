@@ -1,7 +1,10 @@
 package com.ganesh.main;
+
+import org.springframework.stereotype.Service;
+
 //import javax.persistence.Entity;
 //@Entity
-
+@Service
 public class Student {
  
 	private String name;
@@ -35,19 +38,19 @@ public class Student {
 
 	String gradeCal(String name, Long marks)
 	{
-		if(marks>=90 && marks<=100)
+		if(marks>=85 && marks<=100)
 		{
-			return name+" is awarded with A Grade";
+			return name+" is awarded with 'A' Grade";
 		}
-		else if(marks>=80)
+		else if(marks>=65)
 		{
-			return name+" is awarded with B Grade";
+			return name+" is awarded with 'B' Grade";
 		}
-		else if(marks>=70)
+		else if(marks>=40)
 		{
-			return name+" is awarded with C Grade";
+			return name+" is awarded with 'C' Grade";
 		}
-		else if(marks<=60 && marks>=0)
+		else if(marks<40 && marks>=0)
 		{
 			return name+" is Failed in Exam";
 		}
