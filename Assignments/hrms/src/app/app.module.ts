@@ -10,6 +10,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LeaveComponent } from './leave/leave.component';
+import { UpdateLeavesComponent } from './update-leaves/update-leaves.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LeaveComponent } from './leave/leave.component';
     EmployeeDetailsComponent,
     EmployeeListComponent,
     UpdateEmployeeComponent,
-    LeaveComponent
+    LeaveComponent,
+    UpdateLeavesComponent
   ],
   imports: [
     BrowserModule,

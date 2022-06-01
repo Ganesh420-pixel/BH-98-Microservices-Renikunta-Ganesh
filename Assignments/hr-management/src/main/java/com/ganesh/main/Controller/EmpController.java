@@ -14,13 +14,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ganesh.main.Entity.Employee;
-import com.ganesh.main.Entity.Leave;
+import com.ganesh.main.Entity.LeaveManage;
 import com.ganesh.main.Repository.EmployeeRepository;
 import com.ganesh.main.Repository.LeaveRepository;
+import com.ganesh.main.Service.EmployeeService;
 import com.ganesh.main.Service.LeaveService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
+/**
+ * 
+ * @author renikunta_ganesh
+ *
+ */
 public class EmpController {
 	@Autowired
 	private EmployeeRepository empRep;
@@ -32,6 +38,8 @@ public class EmpController {
 	@Autowired
 	private LeaveRepository leaveRep;
 	
+	@Autowired
+	private EmployeeService empService;
 	
 	@GetMapping("/employees")
 	List<Employee> getAll()
@@ -48,7 +56,7 @@ public class EmpController {
 	@PostMapping("/employees")
 	public Employee save(@RequestBody Employee employee)
 	{
-		return empRep.save(employee);
+		return empService.save(employee);
 		
 	}
 	
@@ -78,33 +86,57 @@ public class EmpController {
 	}
 	
 	@PostMapping("/leave")
-	public Leave save(@RequestBody Leave leave)
+	public LeaveManage save(@RequestBody LeaveManage leave)
 	{
 		return leaveService.save(leave);
 		
 	}
 	
-	@PutMapping("/leave/{empid}")
-	public Leave leaveUpadate(@RequestBody Leave lev, @PathVariable Long empId)
+	@GetMapping("/leave")
+	public List<LeaveManage> getAllLeaves()
 	{
+	  return leaveRep.findAll();
+	}
+	
+	@GetMapping("/leave/{empId}")
+	LeaveManage getOneLeave(@PathVariable String empId)
+	{
+		return leaveRep.findByEmpId(empId);
+	}
+	
+	@PutMapping("/leave/{empId}")
+	public LeaveManage leaveUpadate(@RequestBody LeaveManage lev, @PathVariable String empId)
+	{
+		LeaveManage leaveManage =  leaveRep.findByEmpId(empId);
+		leaveManage.setEmpId(lev.getEmpId());
+		leaveManage.setEname(lev.getEname());
+		leaveManage.setEdepartment(lev.getEdepartment());
+		leaveManage.setReportTo(lev.getReportTo());
+		leaveManage.setApprover(lev.getApprover());
+		leaveManage.setStartDate(lev.getStartDate());
+		leaveManage.setEndDate(lev.getEndDate());
+		leaveManage.setNoOfDays(lev.getNoOfDays());
+		leaveManage.setApprovalDate(lev.getApprovalDate());
+		leaveManage.setStatus(lev.getStatus());
+		return leaveRep.save(leaveManage);
 		
-		return  leaveRep.findById(empId).map(
-				leave ->{
-					leave.setId(lev.getId());
-					leave.setName(lev.getName());
-					leave.setDepartment(lev.getDepartment());
-					leave.setReportTo(lev.getReportTo());
-					leave.setApprover(lev.getApprover());
-					leave.setStartDate(lev.getStartDate());
-					leave.setEndDate(lev.getEndDate());
-					leave.setNoOfDays(lev.getNoOfDays());
-					leave.setApprovalDate(lev.getApprovalDate());
-					leave.setStatus(lev.getStatus());
+		/* return  leaveRep.queryfindByEmpId(empId).map(
+				leaveManage ->{
+					leaveManage.setId(lev.getId());
+					leaveManage.setEname(lev.getEname());
+					leaveManage.setEdepartment(lev.getEdepartment());
+					leaveManage.setReportTo(lev.getReportTo());
+					leaveManage.setApprover(lev.getApprover());
+					leaveManage.setStartDate(lev.getStartDate());
+					leaveManage.setEndDate(lev.getEndDate());
+					leaveManage.setNoOfDays(lev.getNoOfDays());
+					leaveManage.setApprovalDate(lev.getApprovalDate());
+					leaveManage.setStatus(lev.getStatus());
 					return leaveRep.save(leave);
 				}).orElseGet(() -> {
 					lev.setId(empId);
 					return leaveRep.save(lev);
-				});
+				});*/
 				
 	}
 	

@@ -1,0 +1,57 @@
+<div class="col-md-6 offset-md-3">
+	<h3> Leave Details </h3>
+	<form (ngSubmit)="OnSubmit()">
+
+		<div class="form-group">
+			<label> Appication No</label>
+			<input type="text" class="form-control" id="applNo" [(ngModel)]="leave.id" name="application">
+		</div>
+
+		<div class="form-group">
+			<label> Employee</label>
+			<input type="text" class="form-control" id="name" [(ngModel)]="leave.ename" name="name">
+		</div>
+
+		<div class="form-group">
+			<label> Department</label>
+			<input type="text" class="form-control" id="department" [(ngModel)]="leave.edepartment" name="department">
+		</div>
+		<div class="form-group">
+			<label> Report To</label>
+			<input type="text" class="form-control" id="report" [(ngModel)]="leave.reportTo" name="reportTo">
+		</div>
+
+		<div class="form-group">
+			<label> Aprover</label>
+			<input type="text" class="form-control" id="approver" [(ngModel)]="leave.approver" name="approver">
+		</div>
+		<div class="form-group">
+			<label> Start Date</label>
+			<input type="text" class="form-control" id="startDate" [(ngModel)]="leave.startDate" name="startDate">
+		</div>
+		<div class="form-group">
+			<label> End Date</label>
+			<input type="text" class="form-control" id="endDate" [(ngModel)]="leave.endDate" name="endDate">
+		</div>
+		<div class="form-group">
+			<label> No of Days</label>
+			<input type="text" class="form-control" id="noOfDays" [(ngModel)]="leave.noOfDays" name="noOfDays">
+		</div>
+		<div class="form-group">
+			<label> Aproval Date</label>
+			<input type="text" class="form-control" id="approvalDate" [(ngModel)]="leave.approvalDate" name="approvalDate">
+		</div>
+		<div class="form-group">
+		<label>Status</label>
+<select name="status" id="status" class="form-control" >
+<option value="SAVING">Approved</option>
+<option value="CURRENT">Pending</option>
+<option value="CURRENT">Rejected</option>
+</select>
+</div>
+<br>
+
+		<button class="btn btn-success" type="submit">Submit</button>
+
+	</form>
+</div>

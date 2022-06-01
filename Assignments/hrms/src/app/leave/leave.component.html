@@ -1,57 +1,21 @@
-<div class="col-md-6 offset-md-3">
-	<h3> Create Employee </h3>
-	<form (ngSubmit)="onSubmit()">
-
-		<div class="form-group">
-			<label> Appication No</label>
-			<input type="text" class="form-control" id="name" [(ngModel)]="employee.name" name="name">
-		</div>
-
-		<div class="form-group">
-			<label> Employee</label>
-			<input type="text" class="form-control" id="email" [(ngModel)]="employee.email" name="email">
-		</div>
-
-		<div class="form-group">
-			<label> Department</label>
-			<input type="text" class="form-control" id="department" [(ngModel)]="employee.department" name="department">
-		</div>
-		<div class="form-group">
-			<label> Report To</label>
-			<input type="text" class="form-control" id="contactNo" [(ngModel)]="employee.contactNo" name="contactNo">
-		</div>
-
-		<div class="form-group">
-			<label> Aprover</label>
-			<input type="text" class="form-control" id="joiningDate" [(ngModel)]="employee.joiningDate" name="joiningDate">
-		</div>
-		<div class="form-group">
-			<label> Start Date</label>
-			<input type="text" class="form-control" id="address" [(ngModel)]="employee.address" name="address">
-		</div>
-		<div class="form-group">
-			<label> End Date</label>
-			<input type="text" class="form-control" id="address" [(ngModel)]="employee.address" name="address">
-		</div>
-		<div class="form-group">
-			<label> No of Days</label>
-			<input type="text" class="form-control" id="address" [(ngModel)]="employee.address" name="address">
-		</div>
-		<div class="form-group">
-			<label> Aproval Date</label>
-			<input type="text" class="form-control" id="address" [(ngModel)]="employee.address" name="address">
-		</div>
-		<div class="form-group">
-		<label>Status</label>
-<select name="status" id="status" class="form-control" >
-<option value="SAVING">Approved</option>
-<option value="CURRENT">Pending</option>
-<option value="CURRENT">Rejected</option>
-</select>
-</div>
-<br>
-
-		<button class="btn btn-success" type="submit">Submit</button>
-
-	</form>
-</div>
+<h2> Leaves List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> EmpId</th>
+            <th> Name </th>
+            <th> Department </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let leave of leaves" >
+            <td> {{ leave.empId }} </td>
+            <td> {{ leave.ename }} </td>
+            <td> {{ leave.edepartment }} </td>
+            <td>
+                <button (click) = "updateLeave(leave.empId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
