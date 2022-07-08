@@ -1,0 +1,820 @@
+============================= Java Programming ===================================================
+1. JDK -> Java Development Kit  ==> Compiler + JVM => is for Developer
+2. JRE -> Java Runtime Environment ==> JVM => is for Client
+3. JVM -> Java Virtual Machine
+4. JIT -> Just In Time (Compiler)
+
+---------------------------------------------------
+In Python:
+-----------------
+print('Hello')
+
+In C:
+------------
+#include <stdio.h>
+void main()
+{
+	printf("Hello");
+}
+
+In Java:
+------------
+public class Test
+{
+ public static void main(String[] args)
+	{
+		System.out.print("Hello");
+	}
+}
+-----------------------------------------------------------------
+Program is a set of executable instructions.
+--------------------------------------------------
+
+
+Hello.java      ---Compile ----> Hello.class   --- RUN/Execute -----> Output
+(Source Code)     (compiler)     (byte code)       (JVM convert byte code 
+													into machine code)
+													
+Hello.class   --- RUN/Execute -----> Output
+(JVM convert byte code into machine code)      --> JIT stores this machine code
+
+												---> run directly machine code
+													
+-------------------------------------------------------------------------------------------
+
+Computer = sw + hw;
+Platform = OS + MicroProcessor
+		 = Win + intel
+		 = Linux + intel
+		 = MacOS + intel
+		 
+-----------------------------------------------
+
+For Compilation:
+-----------------
+>javac <SourceCodeFileName>
+
+For Execution:
+---------------
+>java <ClassNameHavingMain>
+
+
+-----------------------------------------------
+*) Java is statically typed language.
+
+------------------------------------------------
+
+byte -> short -> int -> long -> float -> double
+
+char -> int
+
+-------------------------------------------------------------
+  int i =10;  
+  long ln = i;  // OK -> Smaller data to Bigger Data type
+  
+ ----------------------------------
+  long ln =10;
+  int  i =ln; // error -> Bigger data to Smaller Data type (Type mismatch: cannot convert from long to int)
+  
+  ---------------------------------------------
+  
+ Opertors:
+ ===========
+ 
+ 1. Arithmetic Operators
+	  +, -, *, /, %
+	
+Example:
+		int a = 10;
+		int b = 3;
+
+		int plus = a + b;
+		int minus = a - b;
+		int multi = a * b;
+		int div = a / b;
+		int mod = a % b;
+
+		System.out.println("a + b = " + plus); // 13
+		System.out.println("a - b = " + minus); // 7
+		System.out.println("a * b = " + multi); // 30
+		System.out.println("a / b = " + div); // 3
+		System.out.println("a % b = " + mod); // 1
+	
+-------------------------------------------------------------------------------	
+ 2. Relational Operator
+	 a) <, >, <=, >=
+	 b) Operands : Numeric
+		Result: boolean
+	
+ Example:
+		int x =15;
+		boolean b = 10 < x < 20; // ERROR
+		         		
+----------------------------------------------------
+ 
+ 3. Equality Operator
+		a) ==, !=
+		b) Operands : all Primitive and all Reference		
+		   Result: boolean
+	
+	Example:
+	-----------
+	    int a = 10;
+
+		boolean b = 10 == a;
+		System.out.println(b);// true
+
+		b = b == false;
+		System.out.println(b);// false
+	
+---------------------------------------------------------	   
+ 4. Variable increment/decrement
+				++ /--
+ 
+ Example:
+ ----------
+ 
+		int i = 10;
+		
+		a)
+		----
+		 ++i;
+		 SOP(i); //11
+		 
+		b)
+		----
+		 i++;
+		 SOP(i); //11 
+		 
+--------------------------------------
+		int i = 10;
+		
+		a)
+		----
+		int j = ++i; // pre increment
+		
+		 SOP(i); // 11
+		 SOP(j); // 11
+		 
+		b)
+		----
+		int j = i++; // Post- Increment
+		
+		 SOP(i); // 11
+		 SOP(j); //	10	
+		
+=====================================================
+int x = ++5;
+	SOP(x); // error
+	
+int x = - -5;
+SOP(x); // 5
+
+===================================================== 
+5. String Conctenation Operator('+')
+
+	String s1 = "I love ";
+	String s2 = "JAVA";
+	
+	String s = s1 + s2;
+	SOP(s); // I Love Java
+	---------------------------------
+	
+		int x = 10 + 20;
+		System.out.println(x); // 30
+
+		String y = "10" + "20";
+		System.out.println(y); // "1020"
+
+		String z = "10" + 20; //=> "10"+ "20"
+		System.out.println(z); // => "1020" 
+
+------------------------------------------------
+ 6. Boolean Operator
+ ------------------------
+	a) &, |, ^, !
+	b) &&, ||
+	
+	 Operand : Boolen Expr
+	 Result : boolean
+ 
+	int x =15;
+	boolean b = (10 < x) &  (x < 20); // true
+ 
+ -----------------------------------------------------
+  7. Ternary Operator
+  ----------------------
+ 
+find max number between 2 numbers :
+---------------------------------------
+int x = 10;
+int y = 20;
+
+		// Find greater number
+		int max;
+		if (x > y) {
+			max = x;
+		} else {
+			max = y;
+		}
+		System.out.println(max);
+	
+---------------------------------------------------------
+	// Find greater number
+		int max = (x > y) ? x : y;
+		System.out.println(max);	
+		
+		
+===============================================================
+Conditionl Statements:
+=========================
+1. if(<boolExpr>)
+	{
+		// body
+	}
+
+
+2. if(<boolExpr>)
+	{
+		// body
+	}
+	else
+	{
+		// body
+	}
+
+3. if(<boolExpr>)
+	{
+		// body
+	}
+  else if(<boolExpr>)
+	{
+		// body
+	}
+  else
+	{
+		// body
+	}
+
+===================================================================
+
+ int x = 10;
+ 
+ if( x == 15) 
+	 {
+		SOP("Hi");
+	 }
+else
+	{
+	    SOP("Bye");
+	}
+
+-----------------------------------------------------------------------
+Switch Statement:
+--------------------
+Syntax:   x can be 
+					a) char, byte, short, int
+					b) enum, String
+-----------
+	switch( x )
+	{
+	case <label1> :
+				----
+				----
+	case <label1> :
+				----
+				----
+	default :
+			-----
+
+-------------------------------------
+Loops:
+----------
+	
+int day = 3;
+		switch (day) {
+		case 1: {
+			System.out.println("Monday");
+			break;
+		}
+		case 2: {
+			System.out.println("Tuesday");
+			break;
+		}
+		case 3: {
+			System.out.println("Wednesday");
+			break;
+		}
+		case 4: {
+			System.out.println("Thursday");
+			break;
+		}
+		case 5: {
+			System.out.println("Friday");
+			break;
+		}
+		case 6: {
+			System.out.println("Saturday");
+			break;
+		}
+		case 7: {
+			System.out.println("Sunday");
+			break;
+		}
+		default:
+			System.out.println("Are you CRAZY");
+		}
+
+
+1. Write a Java program to get a number and print whether it is positive or negative.
+2. Write a Java program to solve quadratic equations
+3. Take three numbers from the user and print the greatest number.
+4. Write a Java program that takes a year from user and print whether that year is a leap year or not.
+5. Write a Java program that takes a number and print whether that number is a Even or Odd.
+6. Write a Java program that takes a number and print whether that number is a Prime or not.
+7. Write a program in Java to input 5 numbers from keyboard and find their sum and average.
+8. Write a program in Java to display the multiplication table of a given integer.
+
+
+9. Fizz Buzz Problem
+	a) take any number
+	b) if divisible by 3 -> "Fizz"
+	b) if divisible by 5 -> "Buzz"
+	c) if divisible by 15 -> "FizzBuzz"
+	d) else "SORRY"
+
+10. Write a program in Java to input 5 numbers from keyboard store in an array and find their sum and average.
+-----------------------------------------------------
+Loop:
+---------
+1. for loop
+2. while loop
+3. do-while loop
+
+INITILIZATION
+CONDITION
+UPDATION
+
+-------------------------------------------------
+4. for each loop
+
+ for(<type> <var> : <expr>){
+ }
+ 
+ 
+ **) expr can be a array or collection
+
+============================== Array =======================
+
+1. Array is a linear data structure.
+2. In Java, arrays are objects.
+3. Array elements can be accessed using index and index starts from 0.
+4. Every array has an extra filed/block called length which contains the size of an array.
+
+
+
+Syntax:
+------------
+1. When know the size but not the actual values
+
+	<type> [] <var> = new <type>[<size>]
+
+Example:
+------------
+
+	int[] nums = new int[5];
+	
+		nums[0]= 99;
+		nums[1]= 65;
+		nums[2]= 87;
+		nums[3]= 13;
+		nums[4]= 18;
+
+
+2. When know the the actual values
+
+	<type> [] <var> = { <values>}
+
+Example:
+------------
+
+	int[] nums = {99, 65, 87, 13, 18};
+	
+======================================================================
+Class:
+-------
+1. Class is a blue print (an imaginary thing) which describes the properties(varaibales) and behaviours(methods)
+	of objects
+
+2. Class is a representation of  similr kind of objects.
+
+3. Class is an user defined data type.
+
+Syntax:
+---------
+ <modifier> class <name> <extends> <implements>
+	{
+		//body // member
+					1. variables
+					2. methods
+					3. *constructor
+					4. inner class
+					5. initializer blocks
+					
+					// member categorised in two types: 
+						a) static
+						b) instance
+	}
+
+Example:
+--------
+	class Car
+	{
+	
+		int h;
+		int w;
+static  float wc;
+		
+	    void move(){}
+		
+static	void avg(){} 	
+	
+	}
+
+*) static members are associated with the class.
+*) instance members are associated with object.
+=================================================
+Object:
+---------------
+1. Object is an real world enetity.
+2. Object is an instance of a class.
+
+
+How to create an object in java
+------------------------------------
+			new <type>()
+
+Example:
+--------
+		int i = 10;
+
+		Car c1 = new Car();
+		
+		Car c2 = new Car();
+
+How to Access members:
+-------------------------
+
+<className>.<member> // for static members
+<ObjRef>.<member> // for instance member
+
+Car.wc =100; // OK
+
+ c1.h =20; //OK
+ c2.w=35;  //OK
+
+====================================================
+Inheritance
+---------------
+Inheritance is a way of Code reusablity.
+
+
+=======================================================================
+IS-A  relationship (Inhertance)
+HAS-A relationship (Aggregation)
+
+============================================================
+e.g.:
+------
+class Maruti extends Car
+{
+	//-----
+}
+
+class Person{
+
+	void eat(){}
+	void sleep(){}
+
+}
+
+class Employee extends Person{
+
+     Dog dog;
+
+	void getSalary(){}
+}
+
+
+class Dog
+{
+
+}
+
+-------------------------------------------
+Polymorphism:
+----------------
+
+1. method overloding
+2. method overriding
+3. operator overloding
+
+===============================================
+Encapsultion
+---------------
+public class Cat
+{
+
+	int age;
+}
+
+
+
+Abstraction
+
+============================================================
+The main() in Java:
+-----------------------
+public class Test {
+
+	public static void main(String[] shad) {
+		
+	}
+
+}
+
+1. called by JVM, which is an external entity, hence declared public.
+2. static method can be called using class name directly.
+3. it will not return any kind of value.
+4. main is a method name not a keyword.
+5. shad is command line arguments of String type array.
+
+====================================================================
+Printing in Java:
+--------------------------
+	System.out.print(data); // data
+	 
+	System.out.println(data); // data + next line
+
+ class A
+ {
+	-----
+	 static B v2;
+	-----
+ }
+
+---------------------------------------
+ class B
+ {
+	void foo(){
+	
+	}
+	
+ }
+
+1. How to call foo() using class B ??
+
+B v1 = new B();
+	v1.foo();
+
+2. How to call foo() using class A ??
+        A.v2.foo();
+
+=================================================================
+Output:
+---------------
+int i = 10;
+
+SOP(i);  // 10
+SOP('i'); // i
+SOP("i"); // i
+SOP(10); // 10
+SOP("10"); // 10
+SOP( 2 * 5); // 10
+
+---------------------------------------------
+Methods:
+-----------
+
+It is an block which consist mny statements and can be called by other code
+
+Syntax:
+==========
+
+<modifier> <returnType> name (<parameters>) <throws>
+		{
+			//body
+		}
+
+exmple:
+--------
+public	int sum1(int a, int b)
+             {
+			   return (a+b);
+			 }
+
+private	void sum2(int a, int b)
+             {
+			   SOP(a+b);
+			 }
+
+==========================================================
+Method OverLoding:
+---------------------
+ -> Within the Java class 2 or more than  2 methods having same name 
+	but different parameter called over loaded method. And this process is called method overloading.
+	(Compile-time | early | static polymorphism)
+
+void sum(float a, int b) {
+		System.out.println(a + b);
+	}
+
+void sum(int a, float b) {
+		System.out.println(x + y);
+	}
+	
+
+	
+void sum(int a, int b, int c) {
+		System.out.println(a + b + c);
+	}
+
+-> If name are same :
+	1. no of paramerter
+	2. data type of parameter
+	3. order of parameter 
+
+----------------------------------------------------
+Constructor:
+---------------
+- >Constructor of speacial member of a class. It is similar to the method but not a method. 
+-> It can be called using new operator while creating an object.
+
+-> constructor are used to construct initial state of an object.
+-> constructor chaining
+
+--> Rules:
+--------------
+1. Name of constructor should be same as name of the class.
+2. only Access modifier( public . private, protected, default) is permissible.
+3. No return type even not a void
+
+Constructor can be 2 types:
+-----------------------------
+1. Default constructor (no args constructor)
+2. Parameterized constructor
+
+***) Every Java class must have a constructor.
+	If we created then OK, otherwise
+	Compiler will create a default constructor with same accessability of the class
+
+
+=================================================================
+Inheritance:
+------------
+parent | super | base
+child  | sub   | drived
+
+
+class A{}
+
+class B extends A{}
+
+B obj = new B();
+
+
+===============================================================
+Access Modifier:
+------------------
+1. public :- It can accessible from anywhere
+2. protected :-1) protetcted members cannot be accessed outside the package. Package must be same
+			   2) but through inheritnce.
+3. default :-  default members cannot be accessed outside the package. Package must be same
+4. private :- It can be accessible whinin the its class
+
+
+
+Other Modifier:
+---------------------
+1. static
+2. abstract
+3. final
+4. native
+5. transient
+6. synchronized
+7. volatile
+8. strictfp
+
+===============================================
+assignment:
+---------------------
+what is final keyword?
+
+-> we can use final keyword with class, method, and variable.
+-> final class can not be inherited. No Sub class are allowed. But we can create object for final class.
+-> final meyhod can not be overridden.
+-> final vrible can not re-assigned. ( final + variable = constant)
+
+------------------------
+what is abstract keyword?
+
+-> we can use abstract keyword with class and method.
+-> A method without body called abstract.
+
+--> No one cn create objects of an abstract class. Abstract class restricts its instantiation process
+but it can be inherited.
+
+===========================================================================================================
+what is interface?
+==========================
+-> interface is an user defined data type.
+
+-> In java, there is single inheritnce using classes.
+-> Interface provides multiple inheritnce in Java.
+
+-> Interfce contins only abstract and public methods
+
+-> No one cn create objects of interface, but it can be inherited.
+
+-> interface will always super type
+
+===============================================================================
+
+class  extends class   //OK
+
+interface extends interface  //Ok
+
+class implements  interface //Ok
+
+interface   class  // Not possible
+
+-----------------------------------------------
+what is difference between abstract class and interface?
+
+New enhancement in interface in Java8?
+ we can create concrete method in interface body	
+	a) default method
+	b )static method
+
+public interface I {
+
+	void method();
+
+	default void f1() {
+	}
+
+	static void f2() {
+	}
+
+}
+
+Function interface:
+---------------------
+An interface having single abstract method called functionl interface.
+
+Marker interface:
+---------------------
+An interface having empty body called marker interface. (Cloneable)
+
+===========================================================================
+Polymorphism:
+------------------
+1. Method Overloding:
+-----------------------
+ -> Within a JAVA class, 2 or more than 2 methods having same name but different parameter
+called method overloding.
+
+  class MehodOverloding
+  {
+	void sum(int a, int b){}
+	
+	void sum(int a, int b, int c){}
+  }
+  
+----------------------------------------------
+2. Method Overriding:
+-----------------------
+ -> Between 2 JAVA class having IS-A relationship, child have exactly same method s of its prent class.
+called method Overriding.
+
+  class Parent
+  {
+	void sum(int a, int b){
+		SOP(a+b);
+	}
+	
+  }
+  
+  class child extends Prent
+  {
+	void sum(int a, int b){
+		SOP(a * b);
+	}
+
+  }
+
+-> Method name and parameters must be same:
+-> for accessbility it can be widen. (private -> default -> protected -> public)
+
+
+
